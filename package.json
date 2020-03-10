@@ -4,12 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack --mode development"
+    "build": "webpack --mode development",
+    "start": "node server/index.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.19.2",
+    "express": "^4.17.1",
+    "morgan": "^1.9.1",
     "react": "^16.13.0",
     "react-dom": "^16.13.0"
   },
