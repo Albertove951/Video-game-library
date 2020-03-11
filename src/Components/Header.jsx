@@ -4,7 +4,7 @@ export default class Header extends Component {
     render() {
         return (
             <div className="jumbotron">
-                <h3> Vega's Library </h3>
+                <h2> Vega's Library </h2>
             </div>
         )
     }
