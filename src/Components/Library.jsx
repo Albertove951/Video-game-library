@@ -1,6 +1,23 @@
 import React, { Component } from "react";
+import axios from "axios"
 
 export default class Library extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            gameInfo: []
+        }
+    }
+
+    componentDidMount() {
+        i=0
+        axios.get(`/game/:gamesearch`)
+          .then(res => {
+            const gameInfo = res.data;
+            this.setState({ gameInfo });
+            console.log(gameInfo.results[2].name);
+          })
+      }
 
     render() {
         return (
