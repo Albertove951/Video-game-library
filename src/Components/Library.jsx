@@ -10,12 +10,11 @@ export default class Library extends Component {
     }
 
     componentDidMount() {
-        i=0
         axios.get(`/game/:gamesearch`)
           .then(res => {
             const gameInfo = res.data;
             this.setState({ gameInfo });
-            console.log(gameInfo.results[2].name);
+            console.log(gameInfo.results);
           })
       }
 

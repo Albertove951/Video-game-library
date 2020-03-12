@@ -10,7 +10,7 @@ app.use(express.static('public'));
 
 app.get('/game/:gamesearch', (req, res) => {
     axios({
-        url: `https://api.rawg.io/api/games?page_size=5&search=gta%20v`,
+        url: `https://api.rawg.io/api/games?page_size=8&search=gta`,
         method: 'get',
     })
     .then(response => {
