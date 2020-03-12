@@ -16,7 +16,7 @@ export default class Library extends Component {
         axios.get(`/game/:${this.state.search}`)
             .then(res => {
                 const gameInfo = res.data;
-                this.setState({ gameInfo });
+                this.setState({ gameInfo: gameInfo.results });
                 console.log(this.state.gameInfo);
             })
     }
@@ -32,15 +32,19 @@ export default class Library extends Component {
                 <input type="text" name="search" value={this.state.search} onChange={this.handleChange} placeholder="search..."/>
                 <button onClick={this.onClick}>Search</button>
                 </div>
-            <div className=" d-flex  flex-wrap align-content-around library-container">
+                <div className="d-flex  flex-wrap align-content-around library-container">
+                {this.state.gameInfo.map((game, i) => (
+            <div key ={i}>
                     <div  className="card library-card">
-                                <p className="game-title">GTA San Anreas</p>
+                <p className="game-title">{game.name}</p>
                                 <div>
-                                    <img src="https://media.rawg.io/media/games/1bb/1bb86c35ffa3eb0d299b01a7c65bf908.jpg" alt="" className="rounded mx-auto d-block" height="198px" width="198px" />
+                                    <img src={game.background_image} alt="" className="rounded mx-auto d-block" height="198px" width="198px" />
                                     <p>Metacritic: 93</p>
                             </div>
                     </div>
             </div>
+                ))}
+                </div>
             </div>
         )
     }
